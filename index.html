@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Nemo Pro Diving – IMCA-certified commercial diving contractor in the Black Sea: air surface supplied diving, marine infrastructure IRM, environmental protection and ROV operations. Agigea, Constanța.">
+<title>Nemo Pro Diving</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: pagină B2B pentru scufundări comerciale; benzi pe toată lățimea, conținut max 1180px; vernacular de jurnal de scufundare: scală de adâncime în metri, etichete mono, accent galben de echipament de siguranță */
+:root{
+  --page:#F4F6F5; --surface:#FFFFFF; --ink:#0B1D26; --muted:#4B5F69; --line:#CFD8DA;
+  --abyss:#08212C; --abyss-2:#0F3140; --on-abyss:#EAF2F3; --on-abyss-muted:#9DB6BE; --abyss-line:#1E4656;
+  --hiviz:#F2B705; --hiviz-ink:#7A5A00; --hiviz-on:#1A1400; --teal:#2E8A91;
+  --f-display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --f-body:"Public Sans","Segoe UI",system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --page:#081A22; --surface:#0E2530; --ink:#E4EEF0; --muted:#9DB2BA; --line:#22414E;
+  --abyss:#04131A; --abyss-2:#0F3140; --on-abyss:#EAF2F3; --on-abyss-muted:#9DB6BE; --abyss-line:#1E4656;
+  --hiviz:#F5C22E; --hiviz-ink:#F5C22E; --hiviz-on:#1A1400; --teal:#5BB8BE; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --page:#081A22; --surface:#0E2530; --ink:#E4EEF0; --muted:#9DB2BA; --line:#22414E;
+  --abyss:#04131A; --abyss-2:#0F3140; --on-abyss:#EAF2F3; --on-abyss-muted:#9DB6BE; --abyss-line:#1E4656;
+  --hiviz:#F5C22E; --hiviz-ink:#F5C22E; --hiviz-on:#1A1400; --teal:#5BB8BE; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--page);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.6}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--hiviz);outline-offset:3px}
+p{margin:0}
+h1,h2,h3{font-family:var(--f-display);font-stretch:80%;font-weight:800;line-height:1.02;margin:0;text-wrap:balance;letter-spacing:-.005em}
+h2{font-size:clamp(34px,4.6vw,52px)}
+h3{font-size:24px;font-weight:700;font-stretch:85%}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.mono{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.dark{background:var(--abyss);color:var(--on-abyss)}
+.eyebrow{color:var(--hiviz-ink)}
+.dark .eyebrow{color:var(--hiviz)}
+.lead{font-size:19px;color:var(--muted);max-width:60ch}
+.dark .lead{color:var(--on-abyss-muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:2px;font-weight:700;text-decoration:none;font-size:16px;border:2px solid transparent;cursor:pointer;font-family:var(--f-body)}
+.btn-hiviz{background:var(--hiviz);color:var(--hiviz-on)}
+.btn-hiviz:hover{filter:brightness(1.08)}
+.btn-line{border-color:var(--on-abyss-muted);color:var(--on-abyss);background:transparent}
+.btn-line:hover{border-color:var(--on-abyss)}
+
+/* language */
+[data-lang="en"] .ro,[data-lang="ro"] .en{display:none!important}
+
+/* top bar */
+.topbar{background:var(--abyss-2);color:var(--on-abyss-muted);font-size:14px}
+.topbar .wrap{display:flex;flex-wrap:wrap;gap:6px 22px;padding-block:8px;align-items:center}
+.topbar b{color:var(--on-abyss);font-weight:600}
+.langs{margin-left:auto;display:flex;gap:4px}
+.langs button{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;background:transparent;color:var(--on-abyss-muted);border:1px solid var(--abyss-line);padding:6px 10px;min-height:32px;cursor:pointer;border-radius:2px}
+.langs button[aria-pressed="true"]{background:var(--hiviz);color:var(--hiviz-on);border-color:var(--hiviz)}
+
+/* header */
+header .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding-block:18px}
+.brand{text-decoration:none;display:flex;flex-direction:column;line-height:1}
+.brand b{font-family:var(--f-display);font-stretch:75%;font-size:30px;font-weight:800;letter-spacing:.02em}
+.brand span{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.16em;color:var(--on-abyss-muted);margin-top:4px}
+nav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 22px;align-items:center}
+nav a{text-decoration:none;font-weight:600;font-size:15px}
+nav a:hover{color:var(--hiviz)}
+
+/* hero */
+.hero{border-top:1px solid var(--abyss-line);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:56px;padding-block:72px 64px;align-items:stretch}
+.hero-copy{display:flex;flex-direction:column;gap:24px;min-width:0}
+.hero h1{font-size:clamp(44px,6.4vw,82px)}
+.hero h1 em{font-style:normal;color:var(--hiviz)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
+.chips li{font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;border:1px solid var(--abyss-line);padding:6px 10px;color:var(--on-abyss)}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+
+/* depth gauge */
+.gauge{position:relative;border-left:1px solid var(--abyss-line);padding-left:20px;display:flex;flex-direction:column;justify-content:space-between;min-height:360px}
+.tick{display:flex;align-items:center;gap:10px;font-family:var(--f-mono);font-size:12px;color:var(--on-abyss-muted);position:relative}
+.tick::before{content:"";width:14px;height:1px;background:var(--on-abyss-muted);margin-left:-20px}
+.tick.limit{color:var(--hiviz)}
+.tick.limit::before{background:var(--hiviz);width:28px}
+.tick.limit span{color:var(--on-abyss);font-family:var(--f-body);font-size:13px;letter-spacing:0;text-transform:none;line-height:1.35}
+
+/* clients */
+.clients{border-bottom:1px solid var(--line);background:var(--surface)}
+.clients .wrap{padding-block:28px;display:grid;grid-template-columns:180px minmax(0,1fr);gap:24px;align-items:center}
+.clients ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
+.clients li{display:flex;flex-direction:column;gap:2px;min-width:0}
+.clients li b{font-family:var(--f-display);font-stretch:80%;font-size:21px;font-weight:700;line-height:1.1}
+.clients li span{font-family:var(--f-mono);font-size:11px;color:var(--muted);letter-spacing:.04em}
+.clients .mono{color:var(--muted)}
+
+section.block{padding-block:88px}
+.head{display:flex;flex-direction:column;gap:14px;margin-bottom:44px;max-width:780px}
+
+/* services */
+.services{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.svc{background:var(--surface);padding:32px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.svc .tag{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted)}
+.svc .tag b{color:var(--teal);font-weight:500}
+.svc p{color:var(--muted)}
+.svc ul{margin:0;padding-left:18px;color:var(--ink);font-size:16px;display:flex;flex-direction:column;gap:4px}
+.svc a.more{margin-top:auto;font-weight:700;font-size:15px;text-decoration-thickness:2px;text-underline-offset:4px;text-decoration-color:var(--hiviz)}
+
+/* certs */
+.certs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:56px;align-items:start}
+.certgrid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--abyss-line)}
+.certgrid li{padding:16px 12px 16px 0;border-bottom:1px solid var(--abyss-line);display:flex;flex-direction:column;gap:2px;min-width:0}
+.certgrid b{font-family:var(--f-display);font-stretch:80%;font-size:22px;font-weight:700;line-height:1.1}
+.certgrid span{font-size:13px;color:var(--on-abyss-muted)}
+.certgrid li.key b{color:var(--hiviz)}
+.safety{margin-top:28px;border-left:3px solid var(--hiviz);padding-left:18px;color:var(--on-abyss-muted);font-size:17px;max-width:52ch}
+
+/* testimonials */
+.quotes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.q{background:var(--surface);border:1px solid var(--line);padding:30px;display:flex;flex-direction:column;gap:18px;min-width:0}
+.q blockquote{margin:0;font-family:var(--f-display);font-stretch:90%;font-size:23px;font-weight:600;line-height:1.3}
+.q blockquote::before{content:"“";color:var(--hiviz-ink);margin-right:2px}
+.q blockquote::after{content:"”";color:var(--hiviz-ink)}
+.q footer{display:flex;flex-direction:column;gap:2px;font-size:15px}
+.q footer b{font-size:16px}
+.q footer span{color:var(--muted)}
+.q .period{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;color:var(--teal);text-transform:uppercase}
+.tr{font-size:12px;color:var(--muted);font-style:italic}
+
+/* founder */
+.founder .wrap{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:56px;align-items:end}
+.founder blockquote{margin:0;font-family:var(--f-display);font-stretch:85%;font-size:clamp(28px,3.4vw,40px);font-weight:700;line-height:1.15}
+.founder .who{display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--abyss-line);padding-top:18px}
+.founder .who b{font-size:20px}
+.founder .who span{color:var(--on-abyss-muted)}
+
+/* faq */
+.faq{display:flex;flex-direction:column;border-top:2px solid var(--ink);max-width:880px}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:20px 40px 20px 0;font-weight:700;font-size:19px;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:6px;top:16px;font-family:var(--f-mono);font-size:22px;color:var(--hiviz-ink)}
+.faq details[open] summary::after{content:"–"}
+.faq details p{padding:0 0 22px;color:var(--muted);max-width:68ch}
+
+/* cta / contact */
+.contact .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:56px;padding-block:88px}
+.contact h2{margin-top:14px}
+.contact .lead{margin-top:16px}
+.lines{display:flex;flex-direction:column;border-top:1px solid var(--abyss-line)}
+.line{display:grid;grid-template-columns:120px minmax(0,1fr) auto;gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid var(--abyss-line)}
+.line .k{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;color:var(--on-abyss-muted);text-transform:uppercase}
+.line .v{font-size:18px;font-weight:600;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.copy{background:transparent;border:1px solid var(--abyss-line);color:var(--on-abyss-muted);font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;padding:6px 10px;min-height:32px;cursor:pointer;border-radius:2px}
+.copy:hover{border-color:var(--on-abyss-muted);color:var(--on-abyss)}
+.addr{margin-top:22px;color:var(--on-abyss-muted)}
+
+.site-foot{background:var(--abyss);color:var(--on-abyss-muted);font-size:14px;border-top:1px solid var(--abyss-line)}
+.site-foot .wrap{padding-block:24px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+
+@media (max-width:960px){
+  .hero .wrap{grid-template-columns:minmax(0,1fr)}
+  .gauge{display:none}
+  .clients .wrap{grid-template-columns:minmax(0,1fr)}
+  .clients ul{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .certs,.founder .wrap,.contact .wrap{grid-template-columns:minmax(0,1fr)}
+  .quotes{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:640px){
+  .services{grid-template-columns:minmax(0,1fr)}
+  .clients ul{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .certgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .line{grid-template-columns:minmax(0,1fr) auto}
+  .line .k{grid-column:1/-1}
+  section.block{padding-block:64px}
+  .svc,.q{padding:24px}
+}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+</head>
+<body>
+
+<div id="page" data-lang="en">
+
+<div class="topbar">
+  <div class="wrap">
+    <span><span class="en">Operational</span><span class="ro">Operațional</span>: <b>+40 745 128 867</b></span>
+    <span><span class="en">Office</span><span class="ro">Birou</span>: <b>office@nemoprodiving.com</b></span>
+    <div class="langs" role="group" aria-label="Language / Limbă">
+      <button type="button" id="lang-en" data-set="en" aria-pressed="true">EN</button>
+      <button type="button" id="lang-ro" data-set="ro" aria-pressed="false">RO</button>
+    </div>
+  </div>
+</div>
+
+<header class="dark">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Nemo Pro Diving"><b>NEMO PRO DIVING</b><span>COMMERCIAL DIVING · AGIGEA, CONSTANȚA</span></a>
+    <nav aria-label="Main / Principal">
+      <ul>
+        <li><a href="#services"><span class="en">Services</span><span class="ro">Servicii</span></a></li>
+        <li><a href="#certified"><span class="en">Certifications</span><span class="ro">Certificări</span></a></li>
+        <li><a href="#clients-say"><span class="en">Clients</span><span class="ro">Clienți</span></a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a class="btn btn-hiviz" href="#contact"><span class="en">Request a quote</span><span class="ro">Cere o ofertă</span></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero dark" id="top">
+  <div class="wrap">
+    <div class="hero-copy">
+      <span class="mono eyebrow"><span class="en">IMCA member · Black Sea and beyond</span><span class="ro">Membru IMCA · Marea Neagră și dincolo de ea</span></span>
+      <h1><span class="en">State-of-the-art underwater operations in the <em>Black Sea</em>.</span><span class="ro">Operațiuni subacvatice de ultimă generație în <em>Marea Neagră</em>.</span></h1>
+      <p class="lead"><span class="en">Commercial diving for offshore, onshore and port projects: inspections, repairs, maintenance and interventions in extreme conditions, plus ROV operations.</span><span class="ro">Scufundări comerciale pentru proiecte offshore, onshore și portuare: inspecții, reparații, mentenanță și intervenții în condiții extreme, plus operațiuni cu ROV.</span></p>
+      <ul class="chips">
+        <li>IMCA</li><li>ISO 9001</li><li>ISO 14001</li><li>ISO 45001</li>
+        <li><span class="en">Surface supplied air to 50 m</span><span class="ro">Aer furnizat de la suprafață, până la 50 m</span></li>
+      </ul>
+      <div class="ctas">
+        <a class="btn btn-hiviz" href="#contact"><span class="en">Request a quote</span><span class="ro">Cere o ofertă</span></a>
+        <a class="btn btn-line" href="#services"><span class="en">See our services</span><span class="ro">Vezi serviciile</span></a>
+      </div>
+    </div>
+    <div class="gauge" aria-hidden="true">
+      <div class="tick">0 m</div>
+      <div class="tick">10 m</div>
+      <div class="tick">20 m</div>
+      <div class="tick">30 m</div>
+      <div class="tick">40 m</div>
+      <div class="tick limit">50 m <span><span class="en">Air surface supplied diving limit</span><span class="ro">Limita scufundării cu aer de la suprafață</span></span></div>
+    </div>
+  </div>
+</section>
+
+<div class="clients">
+  <div class="wrap">
+    <span class="mono"><span class="en">Letters of recommendation from</span><span class="ro">Scrisori de recomandare de la</span></span>
+    <ul>
+      <li><b>OMV Petrom</b><span>2024 – 2026</span></li>
+      <li><b>Van Oord</b><span class="en">since 2022 · 3 projects</span><span class="ro">din 2022 · 3 proiecte</span></li>
+      <li><b>GeoEcoMar</b><span class="en">since 2013</span><span class="ro">din 2013</span></li>
+      <li><b>R.A.J.A. SA</b><span class="en">since 2019</span><span class="ro">din 2019</span></li>
+      <li><b>Uzinsider</b><span class="en">since 2019</span><span class="ro">din 2019</span></li>
+    </ul>
+  </div>
+</div>
+
+<section class="block" id="services">
+  <div class="wrap">
+    <div class="head">
+      <span class="mono eyebrow"><span class="en">Services</span><span class="ro">Servicii</span></span>
+      <h2><span class="en">Four services, one diving team</span><span class="ro">Patru servicii, o singură echipă de scafandri</span></h2>
+      <p class="lead"><span class="en">From critical infrastructure inspections and repairs to environmental protection and ROV operations, across the Black Sea and beyond.</span><span class="ro">De la inspecția și repararea infrastructurii critice la protecția mediului și operațiuni ROV, în Marea Neagră și dincolo de ea.</span></p>
+    </div>
+    <div class="services">
+      <article class="svc">
+        <div class="tag mono"><span>01</span><b><span class="en">Up to 50 m</span><span class="ro">Până la 50 m</span></b></div>
+        <h3><span class="en">Air surface supplied diving</span><span class="ro">Scufundări cu aer furnizat de la suprafață</span></h3>
+        <p><span class="en">The backbone of our underwater work. A continuous air supply gives divers a larger gas reserve and longer working time.</span><span class="ro">Baza activității noastre subacvatice. Alimentarea continuă cu aer le dă scafandrilor o rezervă mai mare și timp de lucru mai lung.</span></p>
+        <ul>
+          <li><span class="en">Portable systems with uninterrupted air supply</span><span class="ro">Sisteme portabile, cu alimentare neîntreruptă</span></li>
+          <li><span class="en">NPD air decompression tables</span><span class="ro">Tabele de decompresie NPD pentru aer</span></li>
+          <li><span class="en">In-water or decompression-chamber procedures</span><span class="ro">Decompresie în apă sau în cameră de decompresie</span></li>
+        </ul>
+        <a class="more" href="https://www.nemoprodiving.com/services/air-surface-supplied-diving-services" target="_blank" rel="noopener"><span class="en">Service details</span><span class="ro">Detalii serviciu</span></a>
+      </article>
+      <article class="svc">
+        <div class="tag mono"><span>02</span><b>IRM</b></div>
+        <h3><span class="en">Marine infrastructure IRM</span><span class="ro">IRM pentru infrastructură marină</span></h3>
+        <p><span class="en">Inspection, repair and maintenance of submerged infrastructure, tailored to each structure, water depth and environmental condition.</span><span class="ro">Inspecție, reparații și mentenanță pentru infrastructura submersă, adaptate fiecărei structuri, adâncimi și condiții de mediu.</span></p>
+        <ul>
+          <li><span class="en">Visual inspections</span><span class="ro">Inspecții vizuale</span></li>
+          <li><span class="en">Thickness measurements and NDT</span><span class="ro">Măsurători de grosime și NDT</span></li>
+          <li><span class="en">Component replacement and major repairs</span><span class="ro">Înlocuiri de componente și reparații majore</span></li>
+        </ul>
+        <a class="more" href="https://www.nemoprodiving.com/services/marine-infrastructures-irm" target="_blank" rel="noopener"><span class="en">Service details</span><span class="ro">Detalii serviciu</span></a>
+      </article>
+      <article class="svc">
+        <div class="tag mono"><span>03</span><b><span class="en">Research support</span><span class="ro">Suport cercetare</span></b></div>
+        <h3><span class="en">Marine environmental protection</span><span class="ro">Protecția mediului marin</span></h3>
+        <p><span class="en">Commercial diving support for marine and biological studies, helping researchers study ecosystems and protect underwater biodiversity.</span><span class="ro">Suport de scufundare pentru studii marine și biologice, ca cercetătorii să poată studia ecosistemele și proteja biodiversitatea subacvatică.</span></p>
+        <ul>
+          <li><span class="en">Diving support for marine ecosystem studies</span><span class="ro">Scufundări pentru studiul ecosistemelor marine</span></li>
+          <li><span class="en">Work with GeoEcoMar since 2013, incl. the MARINEGEOHAZARD project</span><span class="ro">Colaborare cu GeoEcoMar din 2013, inclusiv în proiectul MARINEGEOHAZARD</span></li>
+        </ul>
+        <a class="more" href="https://www.nemoprodiving.com/services/marine-environmental-protection-services" target="_blank" rel="noopener"><span class="en">Service details</span><span class="ro">Detalii serviciu</span></a>
+      </article>
+      <article class="svc">
+        <div class="tag mono"><span>04</span><b>SAAB Seaeye Falcon</b></div>
+        <h3><span class="en">ROV inspection and interventions</span><span class="ro">Inspecții și intervenții cu ROV</span></h3>
+        <p><span class="en">Our own ROV supports diving operations and reduces the need for divers in hazardous environments.</span><span class="ro">ROV-ul propriu sprijină operațiunile de scufundare și reduce nevoia de scafandri în medii periculoase.</span></p>
+        <ul>
+          <li><span class="en">Pipeline and subsea asset inspection</span><span class="ro">Inspecția conductelor și a echipamentelor submarine</span></li>
+          <li><span class="en">Offshore wind farm monitoring</span><span class="ro">Monitorizarea parcurilor eoliene offshore</span></li>
+          <li><span class="en">Hull and port facility inspection, search and recovery</span><span class="ro">Inspecția carenelor și a instalațiilor portuare, căutare și recuperare</span></li>
+        </ul>
+        <a class="more" href="https://www.nemoprodiving.com/services/rov-inspection-and-underwater-interventions" target="_blank" rel="noopener"><span class="en">Service details</span><span class="ro">Detalii serviciu</span></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="block dark" id="certified">
+  <div class="wrap certs">
+    <div class="head" style="margin:0">
+      <span class="mono eyebrow"><span class="en">Certified &amp; accredited</span><span class="ro">Certificări și acreditări</span></span>
+      <h2><span class="en">A fully certified IMCA offshore and onshore diving contractor</span><span class="ro">Contractor de scufundări offshore și onshore, certificat IMCA</span></h2>
+      <p class="safety"><span class="en">Safety runs through an Integrated Management System that combines ISO standards and IMCA guidelines. Our divers and technical staff train regularly and work to industry standards.</span><span class="ro">Siguranța e asigurată printr-un sistem de management integrat, care combină standardele ISO și ghidurile IMCA. Scafandrii și personalul tehnic se pregătesc periodic și lucrează după standardele industriei.</span></p>
+    </div>
+    <ul class="certgrid">
+      <li class="key"><b>IMCA</b><span>International Marine Contractors Association</span></li>
+      <li class="key"><b>ISO 9001</b><span class="en">Quality</span><span class="ro">Calitate</span></li>
+      <li class="key"><b>ISO 14001</b><span class="en">Environment</span><span class="ro">Mediu</span></li>
+      <li class="key"><b>ISO 45001</b><span class="en">Health &amp; safety</span><span class="ro">Sănătate și securitate</span></li>
+      <li><b>DNV</b><span class="en">Classification society</span><span class="ro">Societate de clasificare</span></li>
+      <li><b>Lloyd's Register</b><span class="en">Classification society</span><span class="ro">Societate de clasificare</span></li>
+      <li><b>Bureau Veritas</b><span class="en">Classification society</span><span class="ro">Societate de clasificare</span></li>
+      <li><b>RINA</b><span class="en">Classification society</span><span class="ro">Societate de clasificare</span></li>
+      <li><b>ClassNK</b><span class="en">Classification society</span><span class="ro">Societate de clasificare</span></li>
+      <li><b>ANR</b><span class="en">Romanian Naval Authority</span><span class="ro">Autoritatea Navală Română</span></li>
+      <li><b><span class="en">Port of Constanța</span><span class="ro">Portul Constanța</span></b><span class="en">Port working licence</span><span class="ro">Licență de lucru în port</span></li>
+      <li><b><span class="en">Military diving centre</span><span class="ro">Centrul de scafandri militar</span></b><span class="en">Authorisation</span><span class="ro">Autorizație</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="block" id="clients-say">
+  <div class="wrap">
+    <div class="head">
+      <span class="mono eyebrow"><span class="en">Client testimonials</span><span class="ro">Recomandările clienților</span></span>
+      <h2><span class="en">Don't just take our word for it</span><span class="ro">Nu e doar părerea noastră</span></h2>
+    </div>
+    <div class="quotes">
+      <figure class="q" style="margin:0">
+        <span class="period">OMV Petrom · 2024 – 2026</span>
+        <blockquote><span class="en">The diving work carried out by Nemo Pro Diving team have been completed in a safe and efficient manner.</span><span class="ro">Lucrările de scufundare efectuate de echipa Nemo Pro Diving au fost finalizate în siguranță și eficient.</span></blockquote>
+        <footer><b>Catalin Constantin Ghicajanu</b><span>Senior Project Manager, OMV Petrom SA</span><span class="tr ro">Traducere din scrisoarea originală, în engleză</span></footer>
+      </figure>
+      <figure class="q" style="margin:0">
+        <span class="period"><span class="en">Van Oord · since 2022, three projects</span><span class="ro">Van Oord · din 2022, trei proiecte</span></span>
+        <blockquote><span class="en">The diving teams […] demonstrated a great openness in understanding of our needs.</span><span class="ro">Echipele de scafandri […] au demonstrat o mare deschidere în înțelegerea nevoilor noastre.</span></blockquote>
+        <footer><b>Evert Sprengers</b><span>Project Director, Van Oord Dredging and Marine Contractors B.V.</span><span class="tr ro">Traducere din scrisoarea originală, în engleză</span></footer>
+      </figure>
+      <figure class="q" style="margin:0">
+        <span class="period"><span class="en">GeoEcoMar · since 2013</span><span class="ro">GeoEcoMar · din 2013</span></span>
+        <blockquote><span class="en">Carries out promptly and to high standards all the works requested.</span><span class="ro">Execută prompt și la standarde înalte toate lucrările solicitate.</span></blockquote>
+        <footer><b>Ing. Vlad Rădulescu</b><span class="en">Director, National Institute for Marine Geology and Geoecology</span><span class="ro">Director, Institutul Național de Geologie și Geoecologie Marină</span><span class="tr ro">Traducere din scrisoarea originală, în engleză</span></footer>
+      </figure>
+      <figure class="q" style="margin:0">
+        <span class="period"><span class="en">R.A.J.A. SA · since 2019</span><span class="ro">R.A.J.A. SA · din 2019</span></span>
+        <blockquote><span class="en">We can recommend the company NEMO PRO DIVING Ltd. as a professional and reliable collaborator.</span><span class="ro">Putem recomanda compania NEMO PRO DIVING ca un colaborator profesionist și de încredere.</span></blockquote>
+        <footer><b>Andrei Presura</b><span>CEO, R.A.J.A. SA</span><span class="tr ro">Traducere din scrisoarea originală, în engleză</span></footer>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="founder dark">
+  <div class="wrap" style="padding-block:80px">
+    <div style="display:flex;flex-direction:column;gap:18px;min-width:0">
+      <span class="mono eyebrow"><span class="en">From our founder</span><span class="ro">De la fondator</span></span>
+      <blockquote><span class="en">“When we talk about diving, we are primarily talking about attitude. The road to excellence is endless, that's why it's so exciting.”</span><span class="ro">„Când vorbim despre scufundări, vorbim în primul rând despre atitudine. Drumul spre excelență nu are sfârșit și de aceea e atât de captivant.”</span></blockquote>
+    </div>
+    <div class="who">
+      <b>Ilie Jeciu</b>
+      <span>Founder &amp; CEO, Nemo Pro Diving</span>
+      <span class="tr ro" style="color:var(--on-abyss-muted)">Traducere din mesajul original, în engleză</span>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="faq">
+  <div class="wrap">
+    <div class="head">
+      <span class="mono eyebrow"><span class="en">Frequently asked questions</span><span class="ro">Întrebări frecvente</span></span>
+      <h2><span class="en">Before you send a brief</span><span class="ro">Înainte să ne trimiți proiectul</span></h2>
+    </div>
+    <div class="faq">
+      <details open>
+        <summary><span class="en">What commercial diving services do you offer?</span><span class="ro">Ce servicii de scufundări comerciale oferiți?</span></summary>
+        <p><span class="en">Air surface supplied diving, underwater inspections, repairs and maintenance for submerged infrastructure, environmental protection work and ROV operations.</span><span class="ro">Scufundări cu aer furnizat de la suprafață, inspecții subacvatice, reparații și mentenanță pentru infrastructura submersă, lucrări de protecție a mediului și operațiuni cu ROV.</span></p>
+      </details>
+      <details>
+        <summary><span class="en">Where do you operate?</span><span class="ro">Unde lucrați?</span></summary>
+        <p><span class="en">Mainly in the Black Sea, and beyond. Our base is in Agigea, Constanța.</span><span class="ro">În principal în Marea Neagră, dar și în afara ei. Baza noastră este în Agigea, Constanța.</span></p>
+      </details>
+      <details>
+        <summary><span class="en">How do you ensure safety offshore and onshore?</span><span class="ro">Cum asigurați siguranța offshore și onshore?</span></summary>
+        <p><span class="en">Through an Integrated Management System that combines ISO standards and IMCA guidelines, and through modern equipment.</span><span class="ro">Printr-un sistem de management integrat, care combină standardele ISO și ghidurile IMCA, și prin echipamente moderne.</span></p>
+      </details>
+      <details>
+        <summary><span class="en">What qualifications do your divers hold?</span><span class="ro">Ce calificări au scafandrii voștri?</span></summary>
+        <p><span class="en">Our divers and technical staff are certified and experienced, train regularly and follow industry standards.</span><span class="ro">Scafandrii și personalul tehnic sunt certificați și au experiență, se pregătesc periodic și lucrează după standardele industriei.</span></p>
+      </details>
+      <details>
+        <summary><span class="en">Is Nemo Pro Diving IMCA-certified?</span><span class="ro">Este Nemo Pro Diving certificată IMCA?</span></summary>
+        <p><span class="en">Yes. We are an IMCA member, aligned with international offshore and commercial diving standards.</span><span class="ro">Da. Suntem membri IMCA (International Marine Contractors Association) și lucrăm după standardele internaționale pentru scufundări offshore și comerciale.</span></p>
+      </details>
+      <details>
+        <summary><span class="en">How do I request a quote?</span><span class="ro">Cum cer o ofertă?</span></summary>
+        <p><span class="en">Call or email us with the project details. We prepare a proposal based on your project's needs.</span><span class="ro">Sună-ne sau scrie-ne cu detaliile proiectului. Pregătim o ofertă după nevoile proiectului tău.</span></p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="contact dark" id="contact">
+  <div class="wrap">
+    <div>
+      <span class="mono eyebrow"><span class="en">Request a quote</span><span class="ro">Cere o ofertă</span></span>
+      <h2><span class="en">Planning an underwater project?</span><span class="ro">Planifici un proiect subacvatic?</span></h2>
+      <p class="lead"><span class="en">Tell us the structure, location and timeline. Our operational team will come back with a proposal.</span><span class="ro">Spune-ne ce structură, unde și în ce termen. Echipa operațională revine cu o ofertă.</span></p>
+      <p class="addr"><span class="en">Registered office and working place</span><span class="ro">Sediu social și punct de lucru</span>: 1 Lacului Street, Agigea, Constanța, RO</p>
+    </div>
+    <div class="lines">
+      <div class="line"><span class="k"><span class="en">Operational</span><span class="ro">Operațional</span></span><span class="v">+40 745 128 867</span><button class="copy" type="button" id="c1" data-copy="+40745128867"><span class="en">Copy</span><span class="ro">Copiază</span></button></div>
+      <div class="line"><span class="k"><span class="en">Diving</span><span class="ro">Scufundări</span></span><span class="v">+40 721 510 761</span><button class="copy" type="button" id="c2" data-copy="+40721510761"><span class="en">Copy</span><span class="ro">Copiază</span></button></div>
+      <div class="line"><span class="k">Manager</span><span class="v">+40 721 144 230</span><button class="copy" type="button" id="c3" data-copy="+40721144230"><span class="en">Copy</span><span class="ro">Copiază</span></button></div>
+      <div class="line"><span class="k">Marketing</span><span class="v">+40 737 557 386</span><button class="copy" type="button" id="c4" data-copy="+40737557386"><span class="en">Copy</span><span class="ro">Copiază</span></button></div>
+      <div class="line"><span class="k"><span class="en">Office</span><span class="ro">Birou</span></span><span class="v">office@nemoprodiving.com</span><button class="copy" type="button" id="c5" data-copy="office@nemoprodiving.com"><span class="en">Copy</span><span class="ro">Copiază</span></button></div>
+      <div class="line"><span class="k"><span class="en">Diving</span><span class="ro">Scufundări</span></span><span class="v">diving@nemoprodiving.com</span><button class="copy" type="button" id="c6" data-copy="diving@nemoprodiving.com"><span class="en">Copy</span><span class="ro">Copiază</span></button></div>
+    </div>
+  </div>
+</section>
+
+<div class="site-foot">
+  <div class="wrap">
+    <span>© 2026 Nemo Pro Diving SRL</span>
+    <span><span class="en">We treat our customers, employees, partners and suppliers fairly and with respect.</span><span class="ro">Ne tratăm clienții, angajații, partenerii și furnizorii corect și cu respect.</span></span>
+  </div>
+</div>
+
+</div>
+
+<script>
+(function(){
+  var page=document.getElementById('page');
+  function setLang(l){
+    page.setAttribute('data-lang',l);
+    document.documentElement.lang=l;
+    document.querySelectorAll('.langs button').forEach(function(b){b.setAttribute('aria-pressed',String(b.getAttribute('data-set')===l))});
+    try{localStorage.setItem('npd-lang',l)}catch(e){}
+  }
+  var start='en';
+  try{var s=localStorage.getItem('npd-lang'); if(s==='ro'||s==='en') start=s}catch(e){}
+  if(location.hash==='#ro'||location.hash==='#en') start=location.hash.slice(1);
+  setLang(start);
+  document.querySelectorAll('.langs button').forEach(function(b){b.addEventListener('click',function(){setLang(b.getAttribute('data-set'))})});
+  window.addEventListener('hashchange',function(){if(location.hash==='#ro'||location.hash==='#en') setLang(location.hash.slice(1))});
+  document.querySelectorAll('button[data-copy]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var t=b.getAttribute('data-copy'),orig=b.innerHTML,ro=page.getAttribute('data-lang')==='ro';
+      function done(m){b.textContent=m;setTimeout(function(){b.innerHTML=orig},1500)}
+      try{navigator.clipboard.writeText(t).then(function(){done(ro?'Copiat':'Copied')},function(){done(t)})}catch(e){done(t)}
+    });
+  });
+})();
+</script>
+</body>
+</html>
